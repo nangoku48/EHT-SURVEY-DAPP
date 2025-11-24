@@ -18,7 +18,8 @@ const projectId = '8f0560bef7be823af38fd0973e9576a8'
 const metadata = {
   name: 'ETH Signature Survey App',
   description: 'Ethereum Signature Demo App',
-  url: 'http://localhost:5173',
+  // Use the public GitHub Pages URL (or keep relative) to avoid localhost in production
+  url: 'https://nangoku48.github.io/EHT-SURVEY-DAPP/',
   icons: ['/vite.svg']
 }
 

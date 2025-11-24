@@ -126,8 +126,8 @@ function App() {
     <>
       <div className="video-background">
         <video autoPlay muted loop playsInline>
-          <source src="/santa.mp4.mp4" type="video/mp4" />
-          <source src="/santa.mp4" type="video/mp4" />
+          {/* Use relative path so GitHub Pages serves the file from the repo root */}
+          <source src="./santa.mp4" type="video/mp4" />
         </video>
       </div>
       
