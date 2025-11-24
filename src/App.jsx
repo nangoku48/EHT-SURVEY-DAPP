@@ -126,8 +126,8 @@ function App() {
     <>
       <div className="video-background">
         <video autoPlay muted loop playsInline>
-          {/* Use relative path so GitHub Pages serves the file from the repo root */}
-          <source src="./santa.mp4" type="video/mp4" />
+          {/* Use absolute repo-root path so Vite transforms to the repo base when built */}
+          <source src="/santa.mp4" type="video/mp4" />
         </video>
       </div>
       
