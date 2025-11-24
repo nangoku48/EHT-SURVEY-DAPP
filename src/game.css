@@ -1,0 +1,257 @@
+﻿:root {
+  /* 英語が綺麗に見えるフォント設定 */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- 背景動画 --- */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- 左上のボタンエリア --- */
+.top-left-area {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+/* --- 緑色のボタン --- */
+.green-button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700; /* 文字を太く */
+  letter-spacing: 0.5px; /* 文字の間隔を少し開けておしゃれに */
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+  white-space: nowrap; 
+  text-transform: uppercase; /* 全部大文字にしてカッコよく */
+}
+
+.green-button:hover {
+  background-color: #1b5e20;
+  transform: scale(1.05);
+}
+
+/* --- 完了画面（トースト）のデザイン --- */
+.center-toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background: rgba(255, 255, 255, 0.95); /* ほぼ不透明な白 */
+  padding: 40px 60px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* SUCCESS! の文字 */
+.toast-title {
+  color: #2e7d32;
+  font-size: 1.8rem;
+  font-weight: 900; /* 極太 */
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+/* Signature Verified の文字 */
+.toast-message {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Thanks, Oligoto! の文字 */
+.toast-footer {
+  color: #888;
+  font-size: 0.9rem;
+  font-style: italic; /* 斜体でおしゃれに */
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* --- ゲーム用のデザイン（スマホサイズ修正版） --- */
+
+/* ゲーム画面の背景（画面全体） */
+.game-container {
+  width: 100%;
+  height: 100vh; /* 画面いっぱいの高さ */
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* タイトルエリア */
+.game-title {
+  color: #ffffff;
+  font-size: 24px; /* スマホ用に小さく */
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.game-subtitle {
+  color: #f0f0f0;
+  font-size: 13px; /* 小さく */
+  margin-bottom: 20px;
+}
+
+/* ゲームカード本体（白い箱） */
+.game-area {
+  background: white;
+  border-radius: 20px;
+  padding: 20px; /* 余白を減らす */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  width: 90%;      /* 画面幅の90% */
+  max-width: 350px; /* 最大でもスマホサイズ（350px）に制限 */
+  max-height: 80vh; /* 高すぎたらスクロールさせる */
+  overflow-y: auto; /* はみ出たらスクロール */
+}
+
+/* 3枚のカードエリア */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* 間隔を狭く */
+  margin: 20px 0;
+  min-height: 100px;
+}
+
+.card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 10px;
+  width: 80px;  /* スマホ用に小さく */
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped {
+  background: white;
+  color: #333;
+  border: 2px solid #667eea;
+  font-size: 11px; /* 文字を小さく */
+  padding: 2px;
+  transform: rotateY(180deg);
+}
+
+/* スタートボタン */
+.start-button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px; /* ボタンサイズ調整 */
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+  width: 100%; /* 横幅いっぱいに */
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+}
+
+/* 結果表示エリア */
+.result-section {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-amount {
+  font-size: 28px; /* 金額がはみ出ないように調整 */
+  font-weight: bold;
+  color: #d63447;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  word-break: break-all; /* 長すぎたら改行 */
+}
+
+.result-cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.result-item {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 10px;
+  width: 80px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.analysis-box {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 15px;
+  text-align: left;
+  font-size: 12px; /* 文字サイズ調整 */
+  line-height: 1.5;
+  color: #444;
+}
